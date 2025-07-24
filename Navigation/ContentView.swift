@@ -7,30 +7,34 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
                 Text("This is the root view 🌳")
-
-                NavigationLink(destination: SecondView()) {
-                    Text("Go to Second View")
-                }
-
-                NavigationLink(destination: Text("You've arrived to the Third View 🎊")) {
-                    Text("Go to Third View")
+                NavigationLink(destination:Home()) {
+                    Text("Home")
+                        .navigationTitle("Back")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .navigationBarHidden(true)
+                    NavigationLink(destination:About()) {
+                        Text("About")
+                            .navigationTitle("Back")
+                            .navigationBarTitleDisplayMode(.inline)
+                            .navigationBarHidden(true)
+                        NavigationLink(destination:Contact()) {
+                            Text("Contact")
+                                .navigationTitle("Back")
+                                .navigationBarTitleDisplayMode(.inline)
+                                .navigationBarHidden(true)
+                        }
+                        
+                    }
                 }
             }
-            .padding()
-            .navigationTitle("Home")
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarHidden(true)
         }
     }
 }
-
-#Preview {
-    ContentView()
-}
+    #Preview {
+        ContentView()
+    }
